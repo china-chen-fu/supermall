@@ -1,21 +1,21 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-const Cart = () => import("views/cart/Cart.vue")
-const Category = () => import("views/category/Category.vue")
-const Home = () => import("views/home/Home.vue")
-const Profile = () => import("views/profile/Profile.vue")
+const Cart = () => import("views/cart/Cart.vue");
+const Category = () => import("views/category/Category.vue");
+const Home = () => import("views/home/Home.vue");
+const Profile = () => import("views/profile/Profile.vue");
 Vue.use(VueRouter);
 
-const originalPush = VueRouter.prototype.push
+const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
-}
+  return originalPush.call(this, location).catch((err) => err);
+};
 
 const routes = [
   {
     path: "/",
-    redirect: "/home"
+    redirect: "/home",
   },
   {
     path: "/home",
@@ -25,17 +25,17 @@ const routes = [
   {
     path: "/category",
     name: "Category",
-    component: Category
+    component: Category,
   },
   {
     path: "/cart",
     name: "Cart",
-    component: Cart
+    component: Cart,
   },
   {
     path: "/profile",
     name: "Profile",
-    component: Profile
+    component: Profile,
   },
 ];
 
